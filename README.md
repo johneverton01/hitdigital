@@ -35,8 +35,9 @@ Desenvolvimento
 pnpm dev
 ```
 
-Estrutura do projeto
+### Estrutura do projeto
 
+```bash
 app/
 ├── components/
 │   ├── posts/
@@ -59,3 +60,4 @@ app/
 │   └── Comments.ts           # Schema Zod + tipo Comment
 └── layouts/
     └── default.vue
+    ```
