@@ -15,6 +15,7 @@ Crie um arquivo `.env` na raiz do projeto:
 
 ```bash
 cp .env.example .env
+```
 
 Edite o .env com a URL da API:
 
@@ -24,6 +25,7 @@ NUXT_PUBLIC_API_URL=https://jsonplaceholder.typicode.com
 
 ```bash
 pnpm install
+```
 
 ### Desenvolvimento
 
@@ -31,6 +33,7 @@ Desenvolvimento
 
 ```bash
 pnpm dev
+```
 
 Estrutura do projeto
 
