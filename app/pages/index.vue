@@ -1,19 +1,17 @@
 <script setup lang="ts">
-  import { GetPosts } from "~/services/getPosts";
+  import Post from '~/components/posts/Post.vue';
+import { usePosts } from "~/composables/usePosts";
 
-  const getPosts = new GetPosts();
-  const posts = await getPosts.execute();
+  const { posts, fetchPosts } = usePosts();
 
+  await fetchPosts();
 
 </script>
 <template>
   <div>
     <h1 class="text-3xl font-bold mb-4">Lista de posts</h1>
-    <ul>
-      <li v-for="post in posts" :key="post.id" class="mb-2">
-        <h2 class="text-xl font-semibold">{{ post.title }}</h2>
-        <p>{{ post.body }}</p>
-      </li>
-    </ul>
+    <div class="flex flex-wrap gap-4">
+      <Post v-for="post in posts" :key="post.id" :post="post" />
+    </div>
   </div>
 </template>
