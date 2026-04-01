@@ -1,75 +1,58 @@
-# Nuxt Minimal Starter
+# Hit Digital — Teste Técnico Nuxt
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Aplicação SSR construída com **Nuxt 3** que consome a API pública [JSONPlaceholder](https://jsonplaceholder.typicode.com), com listagem e detalhamento de posts.
 
-## Setup
+## Tecnologias
 
-Make sure to install dependencies:
+- [Nuxt 3](https://nuxt.com) — framework SSR
+- [TypeScript](https://www.typescriptlang.org)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [Zod](https://zod.dev) — validação de dados em runtime
+
+## Configuração do ambiente
+
+Crie um arquivo `.env` na raiz do projeto:
 
 ```bash
-# npm
-npm install
+cp .env.example .env
 
-# pnpm
+Edite o .env com a URL da API:
+
+NUXT_PUBLIC_API_URL=https://jsonplaceholder.typicode.com
+
+### Instalação
+
+```bash
 pnpm install
 
-# yarn
-yarn install
+### Desenvolvimento
 
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+Desenvolvimento
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
 pnpm dev
 
-# yarn
-yarn dev
+Estrutura do projeto
 
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+app/
+├── components/
+│   ├── posts/
+│   │   ├── Post.vue          # Card de post
+│   │   └── Comments.vue      # Lista de comentários
+│   ├── Header.vue
+│   └── Footer.vue
+├── composables/
+│   ├── usePosts.ts           # Estado e fetch de posts
+│   └── useComments.ts        # Estado e fetch de comentários
+├── pages/
+│   ├── index.vue             # Listagem de posts
+│   └── posts/[id].vue        # Detalhamento de post
+├── plugins/
+│   └── api.ts                # Plugin $api com $fetch configurado
+├── services/
+│   └── index.ts              # Funções de acesso à API
+├── types/
+│   ├── Post.ts               # Schema Zod + tipo Post
+│   └── Comments.ts           # Schema Zod + tipo Comment
+└── layouts/
+    └── default.vue
